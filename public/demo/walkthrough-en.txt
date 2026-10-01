@@ -1,0 +1,11 @@
+SLOT makes time for independent sports coaches and their clients. This is a captioned walkthrough using real application screenshots and fictional demonstration data.
+
+Choose an individual or group session. The summary shows the studio timezone, duration, price and available places. A reservation holds a place for ten minutes.
+
+Confirm the simulated payment and the booking becomes confirmed. No money changes hands in this demonstration. A signed Stripe test webhook is a separate optional integration.
+
+Two clients request the last place through the real booking service. One succeeds. The other receives a clear conflict message. Transactions and database rules protect capacity.
+
+The coach manages sessions, services, working hours and absences. Clients can move or cancel their own bookings. Server permissions enforce these boundaries.
+
+Next.js, TypeScript and PostgreSQL power the application. GitHub checks exercise booking and browser journeys. External payment and email delivery still require provider testing. Explore the code and its documented tradeoffs.

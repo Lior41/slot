@@ -15,3 +15,7 @@ Record the actual current build. All studio people and bookings are fictional. N
 ## Public demo status
 
 Deployment and video URLs are added only after successful publication. Local captures belong in `docs/screenshots/`. Video transcripts and captions should remain available independently of the player.
+
+## Captioned video
+
+The public `/demo-video` page uses actual local application captures with English explanations. It is a silent screenshot montage, not a continuous interaction recording. Captions are embedded; a text transcript and WebVTT file are provided. No synthetic ASL signing or model output is added.

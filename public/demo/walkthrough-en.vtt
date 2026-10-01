@@ -1,0 +1,37 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.600
+SLOT makes time for independent sports coaches and their clients. This is a captioned walkthrough
+
+00:00:04.600 --> 00:00:09.200
+using real application screenshots and fictional demonstration data.
+
+00:00:09.200 --> 00:00:14.200
+Choose an individual or group session. The summary shows the studio timezone, duration, price and
+
+00:00:14.200 --> 00:00:19.200
+available places. A reservation holds a place for ten minutes.
+
+00:00:19.200 --> 00:00:24.400
+Confirm the simulated payment and the booking becomes confirmed. No money changes hands in this
+
+00:00:24.400 --> 00:00:29.600
+demonstration. A signed Stripe test webhook is a separate optional integration.
+
+00:00:29.600 --> 00:00:34.800
+Two clients request the last place through the real booking service. One succeeds. The other
+
+00:00:34.800 --> 00:00:40.000
+receives a clear conflict message. Transactions and database rules protect capacity.
+
+00:00:40.000 --> 00:00:44.400
+The coach manages sessions, services, working hours and absences. Clients can move or cancel their
+
+00:00:44.400 --> 00:00:48.800
+own bookings. Server permissions enforce these boundaries.
+
+00:00:48.800 --> 00:00:54.800
+Next.js, TypeScript and PostgreSQL power the application. GitHub checks exercise booking and browser journeys. External
+
+00:00:54.800 --> 00:01:00.800
+payment and email delivery still require provider testing. Explore the code and its documented tradeoffs.

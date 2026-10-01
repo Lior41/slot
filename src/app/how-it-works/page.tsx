@@ -60,6 +60,8 @@ export default function Page() {
           release.
         </li>
       </ul>
+      <h2>Inspect the work</h2>
+      <p><a href="https://github.com/Lior41/slot">Source code</a> · <a href="https://github.com/Lior41/slot/tree/main/tests">Tests</a> · <a href="https://github.com/Lior41/slot/actions">Verification runs</a> · <Link href="/demo-video">Captioned walkthrough</Link></p>
       <Link className="button primary" href="/demo">
         Explore the demo ↗
       </Link>
