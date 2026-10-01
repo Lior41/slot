@@ -1,0 +1,2 @@
+ALTER TABLE bookings DROP CONSTRAINT bookings_payment_check;
+ALTER TABLE bookings ADD CONSTRAINT bookings_payment_check CHECK(payment IN ('PENDING','DEMO_PAID','STRIPE_PAID','REFUND_REQUIRED','REFUNDED','NOT_REQUIRED'));
