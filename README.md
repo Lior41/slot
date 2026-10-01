@@ -6,6 +6,8 @@
 
 ![Actual application screenshot](docs/screenshots/home.png)
 
+Watch the [permanent Project Room](https://lior-labspace.vercel.app/project-room): all three projects, English and French, with playback controls, downloadable MP4 files and readable transcripts. It does not require a local server.
+
 ## Overview
 
 A booking product for an independent sports coach. A fictional studio makes the experience easy to explore; reservations, capacity protection and server authorization use real application logic.
