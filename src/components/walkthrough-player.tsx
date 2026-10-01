@@ -81,6 +81,7 @@ function Video({ project, source }: { project: string; source: string }) {
       </div>
       <video
         ref={ref}
+        src={`${source}.mp4`}
         controls
         playsInline
         preload="metadata"
@@ -109,7 +110,6 @@ function Video({ project, source }: { project: string; source: string }) {
           );
         }}
       >
-        <source src={`${source}.mp4`} type="video/mp4" />
         Your browser cannot play this video. Use the MP4 or text links below.
       </video>
       <p className={styles.note}>
