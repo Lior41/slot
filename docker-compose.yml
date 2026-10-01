@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: slot
+      POSTGRES_PASSWORD: local-only-password
+      POSTGRES_DB: slot
+    volumes: [slot-db:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U slot]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    ports: ["3050:3050"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_DRIVER: postgres
+      DATABASE_URL: postgresql://slot:local-only-password@db:5432/slot
+      APP_ORIGIN: http://localhost:3050
+      DEMO_MODE: "true"
+    command: sh -c "npm run db:migrate && npm run start"
+volumes:
+  slot-db:
