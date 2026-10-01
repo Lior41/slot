@@ -103,7 +103,7 @@ docs/             Architecture, evidence and learning guides
 
 - [One-minute captioned video](public/demo/walkthrough-en.mp4) · [Text version](public/demo/walkthrough-en.txt). Real screenshots, edited, no audio.
 - [Reproducible demo](docs/DEMO.md).
-- [French interview and learning guide](docs/INTERVIEW.fr.md).
+- [French interview and learning guide](docs/INTERVIEW.fr.md) · [Three-minute French captioned explanation](public/demo/walkthrough-fr.mp4).
 - [Credits and rights](docs/CREDITS.md).
 - [Contributing](CONTRIBUTING.md).
 

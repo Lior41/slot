@@ -1,0 +1,17 @@
+Bienvenue dans SLOT. Cette vidéo utilise des captures réelles de l’application, accompagnées d’explications écrites. Le studio et les clients sont fictifs. L’objectif est simple : aider un coach à organiser ses séances et permettre aux clients de réserver sans échange interminable de messages.
+
+Le client choisit une date puis une séance. Une séance individuelle accueille une personne, tandis qu’un cours collectif possède plusieurs places. Le prix, la durée et le fuseau horaire doivent être visibles avant la réservation. Une heure affichée sans fuseau peut être trompeuse lorsqu’un client voyage.
+
+Quand le client réserve, le serveur bloque une place pendant dix minutes. Le navigateur affiche la proposition, mais il ne décide pas si la réservation est autorisée. Le serveur vérifie la session, le rôle, les disponibilités et la capacité dans une transaction.
+
+La démonstration confirme ensuite un paiement simulé. Cela permet de parcourir le produit sans carte bancaire. Dans l’intégration Stripe de test, le serveur attend un événement signé du fournisseur. Revenir sur une page de succès ne constitue pas une preuve de paiement.
+
+Voici la difficulté technique principale : deux personnes peuvent voir la dernière place en même temps. Le bouton de démonstration envoie deux demandes au véritable service. Une seule réussit. Le service verrouille le studio pendant la transaction, et PostgreSQL possède aussi des règles de protection.
+
+Il faut également séparer la réservation du paiement. Si le paiement arrive après expiration, il ne doit pas reprendre la place d’un autre client. Il est signalé pour remboursement. Si le même événement arrive deux fois, il doit être traité sans créer deux confirmations.
+
+Le coach dispose de son propre espace. Il peut publier une séance, modifier les prestations et organiser les plages de travail. Les pauses et les chevauchements sont contrôlés côté serveur. Le client peut déplacer ou annuler sa réservation, mais il ne possède pas les permissions du coach.
+
+Pour ton entretien, explique le trajet complet : le formulaire envoie une demande, le serveur valide les données, la transaction modifie la base, puis l’interface montre le résultat. Next.js réunit l’interface et le serveur. TypeScript aide à repérer des erreurs pendant le développement, sans remplacer les contrôles à l’exécution.
+
+Les tests automatiques ont été exécutés sur GitHub, avec PostgreSQL et des parcours navigateur. Les paiements et emails externes demandent encore des essais avec les fournisseurs. Commence ton apprentissage en modifiant la durée du blocage, puis vérifie le test d’expiration. Le guide d’entretien explique cet exercice.

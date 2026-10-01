@@ -1,5 +1,7 @@
 # Préparer un entretien — SLOT
 
+[Regarder l’explication en français](../public/demo/walkthrough-fr.mp4) · [Lire son texte](../public/demo/walkthrough-fr.txt). Montage de captures réelles, avec explications intégrées, sans piste audio.
+
 ## Présentation d’environ trois minutes
 
 SLOT est une application de réservation pour un coach sportif indépendant. Le problème paraît simple : montrer un calendrier et laisser un client choisir une séance. Mais une réservation doit rester correcte lorsque plusieurs personnes agissent au même moment, lorsqu’un paiement arrive en retard ou lorsqu’un horaire change.
