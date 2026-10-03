@@ -1,0 +1,36 @@
+[
+  {
+    "language": "fr",
+    "duration_seconds": 116.0,
+    "sha256": "bf1498010e3a74127836b7ad9b27497707bd6e8c1a16703f7feb5bdc56055231",
+    "audio": {
+      "decoded_audio_seconds": 116.0106875,
+      "decoded_peak": 0.8096252083778381,
+      "decoded_rms": 0.1699648687748125,
+      "fraction_below_minus60_db": 0.1370784265027306,
+      "integrated_lufs": -16.41,
+      "true_peak_dbtp": -1.79,
+      "audio_codec": "AAC mono, 48 kHz, requested 96 kb/s",
+      "verification": "Final MP4 audio decoded and measured; no claim of human listening.",
+      "normalization_peak_target_before_aac": -2.0700000000000003
+    },
+    "capture": "Real browser interaction frames, sampled and edited; synthetic narration. See MEDIA.md."
+  },
+  {
+    "language": "en",
+    "duration_seconds": 85.73333333333333,
+    "sha256": "7640190821c7402242734f0bed98f1cae11a5835aee4be140275ff15866627ea",
+    "audio": {
+      "decoded_audio_seconds": 85.6746875,
+      "decoded_peak": 0.7990262508392334,
+      "decoded_rms": 0.16164006906546802,
+      "fraction_below_minus60_db": 0.1487144321360962,
+      "integrated_lufs": -16.64,
+      "true_peak_dbtp": -1.97,
+      "audio_codec": "AAC mono, 48 kHz, requested 96 kb/s",
+      "verification": "Final MP4 audio decoded and measured; no claim of human listening.",
+      "normalization_peak_target_before_aac": -2.22
+    },
+    "capture": "Real browser interaction frames, sampled and edited; synthetic narration. See MEDIA.md."
+  }
+]

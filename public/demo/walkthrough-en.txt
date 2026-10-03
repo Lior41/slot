@@ -1,11 +1,13 @@
-SLOT makes time for independent sports coaches and their clients. This is a captioned walkthrough using real application screenshots and fictional demonstration data.
+This is Slot, a booking application for a sports coach. I’m opening an isolated client demo. The people are fictional, but reservations use the real booking service and database.
 
-Choose an individual or group session. The summary shows the studio timezone, duration, price and available places. A reservation holds a place for ten minutes.
+I choose an available session. The summary shows the date, time, duration and price, with the calendar’s timezone visible. The client can check the details before reserving.
 
-Confirm the simulated payment and the booking becomes confirmed. No money changes hands in this demonstration. A signed Stripe test webhook is a separate optional integration.
+The reservation starts as a ten-minute hold. I confirm the clearly labelled demo payment, without charging a card. The booking is now confirmed. Abandoned holds expire and release their place.
 
-Two clients request the last place through the real booking service. One succeeds. The other receives a clear conflict message. Transactions and database rules protect capacity.
+In My sessions, I move the booking to another available time. After confirmation, the new time appears. The server checks availability again when rescheduling.
 
-The coach manages sessions, services, working hours and absences. Clients can move or cancel their own bookings. Server permissions enforce these boundaries.
+Cancelling asks for confirmation, then displays the cancelled status. The place is released. These states control availability; they are not just decorative labels.
 
-Next.js, TypeScript and PostgreSQL power the application. GitHub checks exercise booking and browser journeys. External payment and email delivery still require provider testing. Explore the code and its documented tradeoffs.
+Switching to the coach reveals the timetable and booking management. This role switch belongs to the demo. The server still checks permissions for protected operations.
+
+Finally, two clients request the last place simultaneously. One succeeds and the other is safely refused. This exercises the real booking service. This recording uses the local application and simulated checkout.

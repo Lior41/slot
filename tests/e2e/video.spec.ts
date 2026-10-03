@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { expectAudibleNarration } from "./media-audio";
 
 for (const language of ["English", "Français"]) {
   test(`walkthrough actually plays, pauses and restarts in ${language}`, async ({ page }) => {
@@ -9,6 +10,11 @@ for (const language of ["English", "Français"]) {
     await expect
       .poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime), { timeout: 15000 })
       .toBeGreaterThan(0.5);
+    await expectAudibleNarration(video);
+    await page.getByRole("button", { name: "Mute narration", exact: true }).click();
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted)).toBe(true);
+    await page.getByRole("button", { name: "Unmute narration", exact: true }).click();
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted)).toBe(false);
     await page.getByRole("button", { name: "Pause video", exact: true }).click();
     await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
     await page.getByRole("button", { name: "Restart video", exact: true }).click();
@@ -23,7 +29,7 @@ for (const language of ["English", "Français"]) {
 }
 
 test("failed media gives a retry and readable fallback", async ({ page }) => {
-  await page.route("**/demo/*.mp4", (route) => route.abort());
+  await page.route("**/demo/*.mp4*", (route) => route.abort());
   await page.goto("/demo-video");
   await page.getByRole("button", { name: "Play video", exact: true }).click();
   await expect(page.getByRole("status")).toContainText(/could not/);

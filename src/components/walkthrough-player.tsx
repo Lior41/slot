@@ -19,10 +19,10 @@ export function WalkthroughPlayer({
     <section className={styles.player} aria-label={`${project} video presentation`}>
       <div className={styles.languages} role="group" aria-label="Video language">
         <button type="button" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>
-          English · 1 minute
+          English · narration
         </button>
         <button type="button" aria-pressed={language === "fr"} onClick={() => setLanguage("fr")}>
-          Français · 3 minutes
+          Français · narration
         </button>
       </div>
       <Video key={`${basePath}-${language}`} project={project} source={`${basePath}-${language}`} />
@@ -33,7 +33,8 @@ export function WalkthroughPlayer({
 function Video({ project, source }: { project: string; source: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [message, setMessage] = useState("Ready. Press Play to start.");
+  const [muted, setMuted] = useState(false);
+  const [message, setMessage] = useState("Ready. Press Play to hear the narrated demo.");
   const [error, setError] = useState(false);
 
   async function toggle() {
@@ -56,6 +57,14 @@ function Video({ project, source }: { project: string; source: string }) {
     }
   }
 
+  function toggleSound() {
+    const video = ref.current;
+    if (!video) return;
+    video.muted = !muted;
+    if (muted && video.volume === 0) video.volume = 1;
+    setMuted(video.muted);
+  }
+
   function restart() {
     const video = ref.current;
     if (!video) return;
@@ -63,7 +72,7 @@ function Video({ project, source }: { project: string; source: string }) {
     video.load();
     setError(false);
     setPlaying(false);
-    setMessage("Ready. Press Play to start.");
+    setMessage("Ready. Press Play to hear the narrated demo.");
   }
 
   return (
@@ -75,23 +84,31 @@ function Video({ project, source }: { project: string; source: string }) {
         <button type="button" onClick={restart}>
           {error ? "Retry video" : "Restart video"}
         </button>
+        <button type="button" onClick={toggleSound} aria-pressed={muted}>
+          {muted ? "Unmute narration" : "Mute narration"}
+        </button>
         <span className={styles.status} role="status" aria-live="polite">
           {message}
         </span>
       </div>
       <video
         ref={ref}
-        src={`${source}.mp4`}
+        src={`${source}.mp4?v=narrated-20261003`}
         controls
+        muted={muted}
         playsInline
         preload="metadata"
-        poster={`${source}.jpg`}
-        aria-label={`${project} captioned walkthrough`}
+        poster={`${source}.jpg?v=narrated-20261003`}
+        aria-label={`${project} narrated walkthrough with captions`}
         className={styles.video}
         onPlaying={() => {
           setPlaying(true);
           setError(false);
-          setMessage("Playing · captions are embedded · no audio track.");
+          setMessage("Playing · synthetic narration and captions.");
+        }}
+        onVolumeChange={(event) => {
+          const video = event.currentTarget;
+          setMuted(video.muted || video.volume === 0);
         }}
         onPause={() => {
           setPlaying(false);
@@ -113,17 +130,20 @@ function Video({ project, source }: { project: string; source: string }) {
         Your browser cannot play this video. Use the MP4 or text links below.
       </video>
       <p className={styles.note}>
-        Real application screenshots, edited into a captioned walkthrough. Silent video, with no
-        voice-over. Demo data. This is not a continuous recording of interactions.
+        Edited recording of real application interactions, with synthetic narration and captions.
+        Demo data. Pauses may be shortened. Capture details and voice credits are documented below.
       </p>
       <div className={styles.links}>
-        <a href={`${source}.mp4`} target="_blank" rel="noreferrer">
+        <a href={`${source}.mp4?v=narrated-20261003`} target="_blank" rel="noreferrer">
           Open MP4 directly ↗
         </a>
-        <a href={`${source}.mp4`} download>
+        <a href={`${source}.mp4?v=narrated-20261003`} download>
           Download video
         </a>
         <a href={`${source}.txt`}>Read the transcript</a>
+        <a href="https://github.com/Lior41/slot/blob/main/docs/MEDIA.md">
+          Capture and voice credits ↗
+        </a>
         <a href={`${source}.vtt`} download>
           Download captions
         </a>

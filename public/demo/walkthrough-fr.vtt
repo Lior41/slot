@@ -1,94 +1,112 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:06.099
-Bienvenue dans SLOT. Cette vidéo utilise des captures réelles de l’application, accompagnées d’explications écrites. Le
+00:00:00.280 --> 00:00:03.553
+Voici Slot, une application de réservation pour un coach sportif.
 
-00:00:06.099 --> 00:00:12.199
-studio et les clients sont fictifs. L’objectif est simple : aider un coach à organiser
+00:00:03.553 --> 00:00:08.135
+Je vais te montrer le parcours d’un client, puis ce que voit le coach.
 
-00:00:12.199 --> 00:00:18.298
-ses séances et permettre aux clients de réserver sans échange interminable de messages.
+00:00:08.135 --> 00:00:09.771
+J’ouvre une démonstration privée :
 
-00:00:18.298 --> 00:00:23.191
-Le client choisit une date puis une séance. Une séance individuelle accueille une personne, tandis
+00:00:09.771 --> 00:00:15.007
+les personnes sont fictives, mais les réservations passent réellement par le serveur et sa base de
 
-00:00:23.191 --> 00:00:28.085
-qu’un cours collectif possède plusieurs places. Le prix, la durée et le fuseau horaire doivent
+00:00:15.007 --> 00:00:15.335
+données.
 
-00:00:28.085 --> 00:00:32.979
-être visibles avant la réservation. Une heure affichée sans fuseau peut être trompeuse lorsqu’un client
+00:00:17.080 --> 00:00:19.133
+Je choisis maintenant une séance disponible.
 
-00:00:32.979 --> 00:00:37.872
-voyage.
+00:00:19.133 --> 00:00:23.582
+À droite, le récapitulatif indique le jour, l’heure, la durée et le prix.
 
-00:00:37.872 --> 00:00:43.830
-Quand le client réserve, le serveur bloque une place pendant dix minutes. Le navigateur affiche
+00:00:23.582 --> 00:00:26.320
+Le fuseau horaire est affiché dans le calendrier.
 
-00:00:43.830 --> 00:00:49.787
-la proposition, mais il ne décide pas si la réservation est autorisée. Le serveur vérifie
+00:00:26.320 --> 00:00:31.111
+Cette étape permet de vérifier ce que l’on réserve avant de prendre une place.
 
-00:00:49.787 --> 00:00:55.745
-la session, le rôle, les disponibilités et la capacité dans une transaction.
+00:00:33.080 --> 00:00:34.607
+Je réserve ma place.
 
-00:00:55.745 --> 00:01:01.702
-La démonstration confirme ensuite un paiement simulé. Cela permet de parcourir le produit sans carte
+00:00:34.607 --> 00:00:37.660
+Elle est d’abord retenue temporairement, pendant dix minutes.
 
-00:01:01.702 --> 00:01:07.660
-bancaire. Dans l’intégration Stripe de test, le serveur attend un événement signé du fournisseur. Revenir
+00:00:37.660 --> 00:00:40.714
+Je confirme ensuite le paiement de démonstration :
 
-00:01:07.660 --> 00:01:13.617
-sur une page de succès ne constitue pas une preuve de paiement.
+00:00:40.714 --> 00:00:42.241
+aucune carte n’est débitée.
 
-00:01:13.617 --> 00:01:20.000
-Voici la difficulté technique principale : deux personnes peuvent voir la dernière place en même
+00:00:42.241 --> 00:00:43.768
+La réservation devient confirmée.
 
-00:01:20.000 --> 00:01:26.383
-temps. Le bouton de démonstration envoie deux demandes au véritable service. Une seule réussit. Le
+00:00:43.768 --> 00:00:48.348
+Si le paiement était abandonné, cette retenue expirerait pour libérer la place.
 
-00:01:26.383 --> 00:01:32.766
-service verrouille le studio pendant la transaction, et PostgreSQL possède aussi des règles de protection.
+00:00:49.080 --> 00:00:51.424
+Dans mes séances, je retrouve cette réservation.
 
-00:01:32.766 --> 00:01:39.007
-Il faut également séparer la réservation du paiement. Si le paiement arrive après expiration, il
+00:00:51.424 --> 00:00:55.777
+Je clique sur le bouton de déplacement, puis je choisis un autre horaire.
 
-00:01:39.007 --> 00:01:45.248
-ne doit pas reprendre la place d’un autre client. Il est signalé pour remboursement. Si
+00:00:55.777 --> 00:00:58.455
+Après confirmation, la réservation affiche la nouvelle heure.
 
-00:01:45.248 --> 00:01:51.489
-le même événement arrive deux fois, il doit être traité sans créer deux confirmations.
+00:00:58.455 --> 00:01:01.134
+Ce changement vérifie à nouveau les disponibilités ;
 
-00:01:51.489 --> 00:01:56.489
-Le coach dispose de son propre espace. Il peut publier une séance, modifier les prestations
+00:01:01.134 --> 00:01:04.817
+il ne se contente pas de modifier le texte à l’écran.
 
-00:01:56.489 --> 00:02:01.489
-et organiser les plages de travail. Les pauses et les chevauchements sont contrôlés côté serveur.
+00:01:05.447 --> 00:01:06.967
+Je peux aussi annuler.
 
-00:02:01.489 --> 00:02:06.489
-Le client peut déplacer ou annuler sa réservation, mais il ne possède pas les permissions
+00:01:06.967 --> 00:01:11.528
+L’application me demande de confirmer cette décision, puis affiche le statut annulé.
 
-00:02:06.489 --> 00:02:11.489
-du coach.
+00:01:11.528 --> 00:01:13.049
+La place redevient disponible.
 
-00:02:11.489 --> 00:02:16.702
-Pour ton entretien, explique le trajet complet : le formulaire envoie une demande, le serveur
+00:01:13.049 --> 00:01:15.329
+Les états sont donc explicites :
 
-00:02:16.702 --> 00:02:21.915
-valide les données, la transaction modifie la base, puis l’interface montre le résultat. Next.js réunit
+00:01:15.329 --> 00:01:20.651
+en attente, confirmé ou annulé, avec une conséquence réelle sur la capacité du cours.
 
-00:02:21.915 --> 00:02:27.128
-l’interface et le serveur. TypeScript aide à repérer des erreurs pendant le développement, sans remplacer
+00:01:21.280 --> 00:01:23.762
+Je passe maintenant du côté du coach.
 
-00:02:27.128 --> 00:02:32.340
-les contrôles à l’exécution.
+00:01:23.762 --> 00:01:27.662
+Il retrouve son planning et les réservations dans le même espace.
 
-00:02:32.340 --> 00:02:37.234
-Les tests automatiques ont été exécutés sur GitHub, avec PostgreSQL et des parcours navigateur. Les
+00:01:27.662 --> 00:01:30.144
+Les autorisations sont vérifiées par le serveur.
 
-00:02:37.234 --> 00:02:42.128
-paiements et emails externes demandent encore des essais avec les fournisseurs. Commence ton apprentissage en
+00:01:30.144 --> 00:01:35.818
+Le changement de rôle que j’utilise ici est un outil de démonstration, pour découvrir les deux
 
-00:02:42.128 --> 00:02:47.021
-modifiant la durée du blocage, puis vérifie le test d’expiration. Le guide d’entretien explique cet
+00:01:35.818 --> 00:01:36.527
+expériences rapidement.
 
-00:02:47.021 --> 00:02:51.915
-exercice.
+00:01:38.280 --> 00:01:40.911
+Voici le test le plus intéressant :
+
+00:01:40.911 --> 00:01:43.541
+deux clients demandent simultanément la dernière place.
+
+00:01:43.541 --> 00:01:45.420
+Je lance les deux requêtes.
+
+00:01:45.420 --> 00:01:47.299
+Une seule est acceptée ;
+
+00:01:47.299 --> 00:01:49.178
+l’autre reçoit un refus propre.
+
+00:01:49.178 --> 00:01:52.184
+Ce résultat vient du véritable service de réservation.
+
+00:01:52.184 --> 00:01:55.191
+Cette capture utilise l’application locale, avec paiement simulé.

@@ -1,6 +1,6 @@
 # Préparer un entretien — SLOT
 
-[Regarder l’explication en français](../public/demo/walkthrough-fr.mp4) · [Lire son texte](../public/demo/walkthrough-fr.txt). Montage de captures réelles, avec explications intégrées, sans piste audio.
+[Regarder l’explication en français](../public/demo/walkthrough-fr.mp4) · [Lire son texte](../public/demo/walkthrough-fr.txt). Démonstration montée à partir d’interactions réelles, avec voix de synthèse française et sous-titres.
 
 ## Présentation d’environ trois minutes
 

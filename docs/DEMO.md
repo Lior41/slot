@@ -16,6 +16,8 @@ Record the actual current build. All studio people and bookings are fictional. N
 
 Deployment and video URLs are added only after successful publication. Local captures belong in `docs/screenshots/`. Video transcripts and captions should remain available independently of the player.
 
-## Captioned video
+## Narrated videos
 
-The public `/demo-video` page uses actual local application captures with English explanations. It is a silent screenshot montage, not a continuous interaction recording. Captions are embedded; a text transcript and WebVTT file are provided. No synthetic ASL signing or model output is added.
+Open `/demo-video` and choose English or French. Press **Play video** to start the spoken explanation. The player starts unmuted and offers explicit mute/unmute, restart, download, captions and transcript controls.
+
+The videos contain real interactions recorded from the application, edited with synthetic narration and embedded captions. See [capture method and voice credits](MEDIA.md). No ASL recognition or signed-video generation is claimed.

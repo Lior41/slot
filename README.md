@@ -103,9 +103,9 @@ docs/             Architecture, evidence and learning guides
 
 ## Presentation and learning
 
-- [One-minute captioned video](public/demo/walkthrough-en.mp4) · [Text version](public/demo/walkthrough-en.txt). Real screenshots, edited, no audio.
+- [English narrated demo](public/demo/walkthrough-en.mp4) · [Text version](public/demo/walkthrough-en.txt). Real interactions, edited, with synthetic narration and captions.
 - [Reproducible demo](docs/DEMO.md).
-- [French interview and learning guide](docs/INTERVIEW.fr.md) · [Three-minute French captioned explanation](public/demo/walkthrough-fr.mp4).
+- [French interview and learning guide](docs/INTERVIEW.fr.md) · [French narrated explanation](public/demo/walkthrough-fr.mp4).
 - [Credits and rights](docs/CREDITS.md).
 - [Contributing](CONTRIBUTING.md).
 
